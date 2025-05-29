@@ -1,3 +1,4 @@
+
 // main.js - Funcionalidades para Balsamiq Tienda de Tecnología
 
 document.addEventListener('DOMContentLoaded', function() {

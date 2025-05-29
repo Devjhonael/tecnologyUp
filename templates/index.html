@@ -1,63 +1,388 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    <style>
-        .caja{
-            margin:10%;
-            margin-left:30%;
-            margin-right:30%;
-            border:1px solid red
-        }
-    </style>
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Hola index</h1>
-    <div class="caja">
-      <form id="enviar" class="form-control" method="POST" action="{{ url_for('login') }}">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="txtCorreo"
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balsamiq - Tienda de Tecnología</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-btn" id="menuBtn">☰ Menú</button>
+            <div class="logo" id="logoBtn">
+                🔥 HugoTech T
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="¿Qué estás buscando?">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+            <div class="user-actions">
+                <span id="accountBtn" class="action-btn">Mi cuenta</span>
+                <span id="cartBtn" class="action-btn">🛒 Carrito</span>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword"
-            name="txtPassword"
-          />
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <div class="menu-header">
+                    <h3>Menú Principal</h3>
+                    <button class="close-menu" id="closeMenu">✕</button>
+                </div>
+                <ul class="menu-list">
+                    <li><a href="#">💻 Laptops</a></li>
+                    <li><a href="#">🖥️ PC</a></li>
+                    <li><a href="#">⌨️ Accesorios</a></li>
+                    <li><a href="#">💾 Componentes</a></li>
+                    <li><a href="#">🎮 Gamer</a></li>
+                    <li><a href="#">📷 Cámaras</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="mb-3">
-            <span>{{mensaje}}</span>
+        
+        <!-- Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1 class="hero-text">Aumenta el<br>RENDIMIENTO</h1>
+                <div class="processors">
+                    <div class="processor-box">
+                        <div>AMD</div>
+                        <div style="color: #f39c12; font-size: 24px;">RYZEN</div>
+                        <div style="font-size: 32px; color: #f39c12;">3</div>
+                    </div>
+                    <div class="processor-box">
+                        <div>AMD</div>
+                        <div style="color: #f39c12; font-size: 24px;">RYZEN</div>
+                        <div style="font-size: 32px; color: #f39c12;">5</div>
+                    </div>
+                    <div class="processor-box">
+                        <div>AMD</div>
+                        <div style="color: #f39c12; font-size: 24px;">RYZEN</div>
+                        <div style="font-size: 32px; color: #f39c12;">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="intel-processors">
+                <div class="intel-box">
+                    <h3>Intel</h3>
+                    <div style="font-size: 24px; font-weight: bold;">core</div>
+                    <div class="generation">i5</div>
+                </div>
+                <div class="intel-box">
+                    <h3>Intel</h3>
+                    <div style="font-size: 24px; font-weight: bold;">core</div>
+                    <div class="generation">i7</div>
+                </div>
+                <div class="intel-box">
+                    <h3>Intel</h3>
+                    <div style="font-size: 24px; font-weight: bold;">core</div>
+                    <div class="generation">i9</div>
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="ola">Submit</button>
-      </form>
+        <div style="position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px;">
+            <button style="background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 40px; height: 40px; color: white;">⏮</button>
+            <button style="background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 40px; height: 40px; color: white;">▶</button>
+            <button style="background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 40px; height: 40px; color: white;">⏭</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="categories-content">
+            <a href="#" class="category-item">
+                <div class="category-icon">💻</div>
+                <span>Laptop</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🖥</div>
+                <span>PC</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">⌨</div>
+                <span>Accesorios</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🖨</div>
+                <span>Tintas</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🔧</div>
+                <span>Componentes</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🖨</div>
+                <span>Impresoras</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🎮</div>
+                <span>Gamer</span>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">📹</div>
+                <span>Cámaras</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Offers Header -->
+    <div class="offers-header">
+        <div class="offers-title">¡Ofertas Insuperables!</div>
+        <button class="view-all-btn" style="margin-left: 15px;">Ver todo</button>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  </body>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="products-grid" style="position: relative;">
+                <button class="nav-arrow left">‹</button>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR TEROS TE-2766S 27" VA CURVO, 144 Hz, 1MS, 180°</div>
+                    <div class="product-price">S/ 620.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">LAPTOP HP VICTUS 15-FB2014LA AMD RYZEN 5 7535HS</div>
+                    <div class="product-price">S/ 3,550.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🎮</div>
+                    <div class="product-title">VIDEO GIGABYTE GEFORCE GTX 1650 DE OC 4GB GDDR6</div>
+                    <div class="product-price">S/ 620.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">PLACA ASUS PRIME B550M-A CSM LGA AM4 CSM</div>
+                    <div class="product-price">S/ 520.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <div class="product-title">TABLET LENOVO M7 TB-7305X GR, MTK A22 PROCESSOR</div>
+                    <div class="product-price">S/ 300.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <button class="nav-arrow right">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands-section">
+        <div class="brands-container">
+            <div class="section-header">
+                <div class="section-title">Tenemos las mejores Marcas</div>
+                <button class="view-all-btn">Ver todo</button>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-logo">🍎 Apple</div>
+                <div class="brand-logo">🎧 Logitech</div>
+                <div class="brand-logo">💻 TOSHIBA</div>
+                <div class="brand-logo">⚡ HyperX</div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px;">
+                <div class="brand-logo" style="width: 80px;">Kingston</div>
+                <div class="brand-logo" style="width: 80px;">WD</div>
+                <div class="brand-logo" style="width: 80px;">Rybofish</div>
+                <div class="brand-logo" style="width: 80px;">ANTRIX</div>
+                <div class="brand-logo" style="width: 80px;">HP</div>
+                <div class="brand-logo" style="width: 80px;">GIGABYTE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laptops Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="section-header">
+                <div class="section-title">Laptops</div>
+                <button class="view-all-btn">Ver todo</button>
+            </div>
+            <div class="products-grid" style="position: relative;">
+                <button class="nav-arrow left">‹</button>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">NB HP 15-EF0025WM AMD RYZEN 5</div>
+                    <div class="product-price">S/ 1850.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">LAPTOP ADVANCE PSS076, 15.6" FHD, CORE I5-1035G1</div>
+                    <div class="product-price">S/ 1400.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">LAPTOP CHUWI HEROBOOK PRO + INTEL CELERON N4020</div>
+                    <div class="product-price">S/ 930.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">NB LENOVO IDEAPAD SLIM 5 14IAT-05 AMD A4</div>
+                    <div class="product-price">S/ 850.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-title">LAPTOP LENOVO 14 W AMD A6-9220C 1.8GHZ</div>
+                    <div class="product-price">S/ 830.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <button class="nav-arrow right">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitors Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="section-header">
+                <div class="section-title">Monitores</div>
+                <button class="view-all-btn">Ver todo</button>
+            </div>
+            <div class="products-grid" style="position: relative;">
+                <button class="nav-arrow left">‹</button>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR TEROS TE-2766 ( CURVO ), 27", IPS, 144HZ, 1MS</div>
+                    <div class="product-price">S/ 890.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR GAMING ASUS VG248QG 24.5" TN, FHD, 144S, 1MS</div>
+                    <div class="product-price">S/ 800.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR AORUS FI25F-SA 24.5" IPS, 240HZ, 0.4MS, USB</div>
+                    <div class="product-price">S/ 2,470.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR SAMSUNG LC49RG90SSXPE, 49"</div>
+                    <div class="product-price">S/ 4,560.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🖥</div>
+                    <div class="product-title">MONITOR TEROS TE-2417QS ( VA CURVO ), 24", VA</div>
+                    <div class="product-price">S/ 445.00</div>
+                    <button class="add-btn">🛒 Añadir</button>
+                </div>
+                <button class="nav-arrow right">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banners -->
+    <div class="promo-banners">
+        <div class="promo-banner promo-1">
+            <div>
+                <div style="font-size: 20px;">Compra y</div>
+                <div style="font-size: 16px;">recoge en</div>
+                <div style="font-size: 18px; font-weight: bold;">tienda</div>
+                <div style="font-size: 12px;">Gratis en cualquier</div>
+                <div style="font-size: 12px;">punto de recojo</div>
+            </div>
+        </div>
+        <div class="promo-banner promo-2">
+            <div>
+                <div style="font-size: 20px;">Compra</div>
+                <div style="font-size: 16px;">fácil, rápido</div>
+                <div style="font-size: 18px; font-weight: bold;">y seguro</div>
+            </div>
+        </div>
+        <div class="promo-banner promo-3">
+            <div>
+                <div style="font-size: 20px;">Lo mejor en</div>
+                <div style="font-size: 18px; font-weight: bold;">tecnología</div>
+                <div style="font-size: 14px;">Descubre las mejores marcas</div>
+                <div style="font-size: 14px;">a los mejores precios</div>
+            </div>
+        </div>
+        <div class="promo-banner promo-4">
+            <div>
+                <div style="font-size: 20px;">Brindamos</div>
+                <div style="font-size: 16px;">servicio y</div>
+                <div style="font-size: 18px; font-weight: bold;">garantía</div>
+                <div style="font-size: 14px;">En todos nuestros productos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <ul>
+                    <li>📞 Oficina de atención</li>
+                    <li>📧 Atención por chat 24h día de 8:00 a 10:31</li>
+                    <li>🏪 Central de Ayuda</li>
+                    <li>📍 Sucursales para que</li>
+                    <li>📞 Llámanos al (051) 615144</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ubicanos</h3>
+                <ul>
+                    <li>• Ventas por WhatsApp</li>
+                    <li>• 696 777 / 968 898 777</li>
+                    <li>• Tienda de Arequipa Perulica - Galería Técnica - Tacna</li>
+                    <li>• Distrito Mall AQP</li>
+                    <li>• Megaplaza Trujillo</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Compra con confianza</h3>
+                <ul>
+                    <li>• Acerca de Nosotros</li>
+                    <li>• Condiciones</li>
+                    <li>• Nuestro Tiendas</li>
+                    <li>• Términos</li>
+                    <li>• Política de Privacidad</li>
+                    <li>• Preguntas Frecuentes</li>
+                    <li>• Política de Asistencia</li>
+                    <li>• Política de Devoluciones</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">💬</div>
+                    <div class="social-icon">📺</div>
+                    <div class="social-icon">🎵</div>
+                </div>
+                <h3>Métodos de pago</h3>
+                <div class="payment-methods">
+                    <div class="payment-icon">VISA</div>
+                    <div class="payment-icon">MC</div>
+                    <div class="payment-icon">🏦</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/app.js"></script>
+</body>
 </html>
