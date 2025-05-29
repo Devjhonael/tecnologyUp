@@ -2,15 +2,21 @@ from flask  import Flask,redirect,url_for,render_template,request,session,flash
 from dotenv import load_dotenv
 from config import Config
 from db_config import db
-from migrate_config import migrate
 from flask_cors import CORS
 from functools import wraps
+
+from models.category import Category
+from models import *
 
 load_dotenv()
 app=Flask(__name__)
 app.config.from_object(Config)
 app.config['SQLALCHEMY_DATABASE_URI']="mysql://u472469844_est11:#Bd00011@srv1006.hstgr.io/u472469844_est11"
 CORS(app)
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 def login_required(f):
     @wraps(f)
@@ -23,12 +29,11 @@ def login_required(f):
 
 
 # instanciar las extenciones
-db.init_app(app)
+# db.init_app(app)
 with app.app_context():
     db.create_all()
 # ma.init_app(app)
 
-migrate.init_app(app,db)
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -39,13 +44,6 @@ def home():
 def admin():
     return render_template('admin.html')
 
-@app.route('/nosotros')
-@login_required
-def nosotros():
-    return "Pagina de nosotros"
-
-def method_name():
-    pass
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -76,6 +74,19 @@ def logout():
     session.pop('login-in', None)
     session.pop('id', None)
     return redirect(url_for('home'))
+
+@app.route('/categorias')
+def categoria():
+    categorys = db.session.query(Category).all()
+    categoria=[]
+    for category in categorys:
+        print(category.__dict__)
+        categoria.append({
+            'name':category.name,
+            'descripcion':category.description,
+            'imagen_url':category.imagen_url
+        })
+    return render_template('index.html',categoria=categoria)
 
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
