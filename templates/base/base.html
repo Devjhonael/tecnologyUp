@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balsamiq - Tienda de Tecnología</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <button class="menu-btn" id="menuBtn">☰ Menú</button>
+        <div class="logo" id="logoBtn">
+          <a href="{{ url_for('home') }}">🔥 HugoTech T</a>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="¿Qué estás buscando?"
+          />
+          <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div class="user-actions">
+          <span id="accountBtn" class="action-btn">Mi cuenta</span>
+          <span id="cartBtn" class="action-btn">🛒 Carrito</span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+          <div class="menu-header">
+            <h3>Menú Principal</h3>
+            <button class="close-menu" id="closeMenu">✕</button>
+          </div>
+          <ul class="menu-list">
+            
+            {% for  in  %}
+                
+            {% endfor %}
+                
+            <li><a href="#">💻 Laptops</a></li>
+            <li><a href="#">🖥️ PC</a></li>
+            <li><a href="#">⌨️ Accesorios</a></li>
+            <li><a href="#">💾 Componentes</a></li>
+            <li><a href="#">🎮 Gamer</a></li>
+            <li><a href="#">📷 Cámaras</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Menu Overlay -->
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    {% block contenidos %} {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contáctanos</h3>
+          <ul>
+            <li>📞 Oficina de atención</li>
+            <li>📧 Atención por chat 24h día de 8:00 a 10:31</li>
+            <li>🏪 Central de Ayuda</li>
+            <li>📍 Sucursales para que</li>
+            <li>📞 Llámanos al (051) 615144</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Ubicanos</h3>
+          <ul>
+            <li>• Ventas por WhatsApp</li>
+            <li>• 696 777 / 968 898 777</li>
+            <li>• Tienda de Arequipa Perulica - Galería Técnica - Tacna</li>
+            <li>• Distrito Mall AQP</li>
+            <li>• Megaplaza Trujillo</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Compra con confianza</h3>
+          <ul>
+            <li>• Acerca de Nosotros</li>
+            <li>• Condiciones</li>
+            <li>• Nuestro Tiendas</li>
+            <li>• Términos</li>
+            <li>• Política de Privacidad</li>
+            <li>• Preguntas Frecuentes</li>
+            <li>• Política de Asistencia</li>
+            <li>• Política de Devoluciones</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Síguenos</h3>
+          <div class="social-icons">
+            <div class="social-icon">📘</div>
+            <div class="social-icon">📷</div>
+            <div class="social-icon">💬</div>
+            <div class="social-icon">📺</div>
+            <div class="social-icon">🎵</div>
+          </div>
+          <h3>Métodos de pago</h3>
+          <div class="payment-methods">
+            <div class="payment-icon">VISA</div>
+            <div class="payment-icon">MC</div>
+            <div class="payment-icon">🏦</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../static/js/app.js"></script>
+  </body>
+</html>

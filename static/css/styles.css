@@ -45,6 +45,10 @@ body {
     transition: transform 0.2s;
     flex-shrink: 0;
 }
+.logo a{
+    text-decoration: none;
+    color: white;
+}
 
 .logo:hover {
     transform: scale(1.05);

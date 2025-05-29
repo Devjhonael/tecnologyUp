@@ -88,5 +88,17 @@ def categoria():
         })
     return render_template('index.html',categoria=categoria)
 
+@app.route('/productos')
+def producto():
+    products = db.session.query(Product).all()
+    producto=[]
+    for product in products:
+        print(product.__dict__)
+        producto.append({
+            'nombre':product.name,
+            'precio':product.price
+        })
+    return render_template('index.html',producto=producto)
+
 if __name__ == '__main__':
     app.run(port=5000,debug=True)

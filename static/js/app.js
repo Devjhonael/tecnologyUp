@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeMenu = document.getElementById('closeMenu');
 
     // Logo click - redirect to index
-    logoBtn?.addEventListener('click', function() {
-        window.location.href = 'index.html';
-    });
+    // logoBtn?.addEventListener('click', function() {
+    //     window.location.href = 'index.html';
+    // });
 
     // Menu button click
     menuBtn?.addEventListener('click', function() {
