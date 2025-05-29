@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fanpage Veterinaria</title>
+    <!-- CDN de Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hero-section {
+        background-image: url("https://via.placeholder.com/1500x500");
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+      .service-card {
+        background-color: #f8f9fa;
+        margin: 20px 0;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hola bienvenido {{correo}}</h1>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Veterinaria SuperLoca</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Cerrar session</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sección principal -->
+    <section class="hero-section">
+      <h1>Bienvenidos a Veterinaria SuperLoca</h1>
+      <p>¡Cuidamos a tu mascota con amor y profesionalismo!</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Contáctanos</a>
+    </section>
+
+    <!-- Servicios -->
+    <section id="services" class="container my-5">
+      <h2 class="text-center mb-4">Nuestros Servicios</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img
+              src="https://via.placeholder.com/500x300"
+              class="card-img-top"
+              alt="Servicios de Veterinaria"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Consulta General</h5>
+              <p class="card-text">
+                Ofrecemos consultas generales para todo tipo de mascotas. ¡Tu
+                mascota en las mejores manos!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img
+              src="https://via.placeholder.com/500x300"
+              class="card-img-top"
+              alt="Servicios de Veterinaria"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Urgencias</h5>
+              <p class="card-text">
+                Atención inmediata para tu mascota en caso de emergencias. ¡No
+                te preocupes, estamos aquí para ayudar!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img
+              src="https://via.placeholder.com/500x300"
+              class="card-img-top"
+              alt="Servicios de Veterinaria"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Cirugía</h5>
+              <p class="card-text">
+                Contamos con profesionales capacitados para realizar cualquier
+                tipo de cirugía veterinaria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contact" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Tu Nombre</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea
+              class="form-control"
+              id="message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <p>&copy; 2025 Veterinaria SuperLoca | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
