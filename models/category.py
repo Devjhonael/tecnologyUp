@@ -1,5 +1,5 @@
 from db_config import db
-from sqlalchemy import Column,Integer,Text,String
+from sqlalchemy import Column,Integer,Text,String,orm
 
 class Category(db.Model):
     __tablename__ = 'categorias'
@@ -10,3 +10,5 @@ class Category(db.Model):
     description = Column('descripcion', Text)
     
     imagen_url = Column('imagen_url', Text)
+
+    productos = orm.relationship('Product', backref='categoriaProductos',lazy=True)

@@ -1,49 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>soy categoria</h1>
-    {{ categoria }}
-        <!-- Categories -->
-    <section class="categories">
-        <div class="categories-content">
-            <a href="{{ url_for('categoria') }}" class="category-item">
-                <div class="category-icon">💻</div>
-                <span>Laptop</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">🖥</div>
-                <span>PC</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">⌨</div>
-                <span>Accesorios</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">🖨</div>
-                <span>Tintas</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">🔧</div>
-                <span>Componentes</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">🖨</div>
-                <span>Impresoras</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">🎮</div>
-                <span>Gamer</span>
-            </a>
-            <a href="#" class="category-item">
-                <div class="category-icon">📹</div>
-                <span>Cámaras</span>
-            </a>
-        </div>
-    </section>
-</body>
-</html>
+{% extends "base/base.html" %} 
+
+
+{% block banner %}
+<section class="categories">
+  <!--<h1>Categoria</h1>-->
+  <div class="categories-content">
+    {% for cate in categoria %}
+    <a
+      href="{{ url_for('categoria',id=cate.get('id')) }}"
+      class="category-item"
+    >
+      <span>{{cate.name}}</span>
+      <i class="{{ cate.imagen_url }}"></i>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock  %}
+
+
+
+
+{% block contenido %} 
+
+{% for producto in list_productos%}
+<div class="col-3">
+  <section class="conta">
+    <div class="product-card">
+      <img src="https://www.peru-smart.com/wp-content/uploads/2024/04/LAPT180DORADO-512GBSSD_1.jpg" width="200px" height="200" alt="">
+      <div class="product-title">{{producto.name}}</div>
+      <div class="product-price">S/{{producto.price}}</div>
+      <div class="product-price">{{producto.stock}}</div>
+      <area shape="" coords="" href="" alt="" />
+      <button class="add-btn">🛒 Añadir</button>
+    </div>
+  </section>
+</div>
+{% endfor %} 
+
+{% endblock %}
