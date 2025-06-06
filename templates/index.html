@@ -1,254 +1,219 @@
 {% extends "base/base.html" %} {% block banner %}
-<!--
-
-  <img
-    src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/latam/mx/support/laptop-user-guide/img/laptop.png"
-    alt="Slide 1"
-  />
-</div>
-<div class="swiper-slide">
-  <img
-    src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/south-pacific/ph/mkt/plp/monitors/img/img-0914/kv.jpg"
-    alt="Slide 2"
-  />
-</div>
-<div class="swiper-slide">
-  <img
-    src="https://sony.scene7.com/is/image/sonyglobalsolutions/529_category?$goldenAreaImage$&fmt=png-alpha"
-    alt="Slide 3"
-  /> 
--->
 
 <!-- Slider principal -->
-<div class="swiper">
+
+<div class="swiper swiper-banner" style="border: 1px solid red">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <div class="col-4">
-        <div class="card text-white bg-primary">
-          <img class="card-img-top" src="holder.js/100px180/" alt="" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              minus quasi voluptate eius natus. Adipisci provident sequi magnam
-              ipsam sit debitis corporis, fugiat, totam voluptates sapiente vero
-              veritatis qui maiores?
-            </p>
-          </div>
-        </div>
-      </div>
+      <img
+        src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/latam/mx/support/laptop-user-guide/img/laptop.png"
+        alt="Slide 1"
+      />
     </div>
     <div class="swiper-slide">
-      <div class="col-4">
-        <div class="card text-white bg-primary">
-          <img class="card-img-top" src="holder.js/100px180/" alt="" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              minus quasi voluptate eius natus. Adipisci provident sequi magnam
-              ipsam sit debitis corporis, fugiat, totam voluptates sapiente vero
-              veritatis qui maiores?
-            </p>
-          </div>
-        </div>
-      </div>
+      <img
+        src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/south-pacific/ph/mkt/plp/monitors/img/img-0914/kv.jpg"
+        alt="Slide 2"
+      />
     </div>
     <div class="swiper-slide">
-      <div class="col-4">
-        <div class="card text-white bg-primary">
-          <img class="card-img-top" src="holder.js/100px180/" alt="" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              minus quasi voluptate eius natus. Adipisci provident sequi magnam
-              ipsam sit debitis corporis, fugiat, totam voluptates sapiente vero
-              veritatis qui maiores?
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="col-4">
-        <div class="card text-white bg-primary">
-          <img class="card-img-top" src="holder.js/100px180/" alt="" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              minus quasi voluptate eius natus. Adipisci provident sequi magnam
-              ipsam sit debitis corporis, fugiat, totam voluptates sapiente vero
-              veritatis qui maiores?
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="col-4">
-        <div class="card text-white bg-primary">
-          <img class="card-img-top" src="holder.js/100px180/" alt="" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              minus quasi voluptate eius natus. Adipisci provident sequi magnam
-              ipsam sit debitis corporis, fugiat, totam voluptates sapiente vero
-              veritatis qui maiores?
-            </p>
-          </div>
-        </div>
-      </div>
+      <img
+        src="https://sony.scene7.com/is/image/sonyglobalsolutions/529_category?$goldenAreaImage$&fmt=png-alpha"
+        alt="Slide 3"
+      />
     </div>
   </div>
-  <!-- Flechas -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next swiper-button-banner"></div>
+  <div class="swiper-button-prev swiper-button-prev-banner"></div>
 
-  <!-- Paginación -->
-  <div class="swiper-pagination"></div>
+  <div class="swiper-pagination swiper-pagination-banner"></div>
 </div>
 
-{% endblock %} {% block contenido %}
-<!-- Categories -->
-<section class="categories">
-  <h1>Categoria</h1>
-  <div class="categories-content">
-    {% for cate in categoria %}
-    <a
-      href="{{ url_for('categoria',id=cate.get('id')) }}"
-      class="category-item"
-    >
-      <span>{{cate.name}}</span>
-      <i class="{{ cate.imagen_url }}"></i>
-    </a>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- Offers Header -->
-<div class="offers-header">
-  <div class="offers-title">¡Ofertas Insuperables!</div>
-  <button class="view-all-btn" style="margin-left: 15px">Ver todo</button>
-</div>
-
-<!-- Laptops Section -->
-<section class="products-section">
-  <div class="products-container">
-    <div class="section-header">
-      <div class="section-title">Laptops</div>
-      <button class="view-all-btn">Ver todo</button>
-    </div>
-    <div class="products-grid" style="position: relative">
-      <button class="nav-arrow left">‹</button>
-
-      {% for product in producto %} {{ product }}
-      <div class="product-card">
-        <div class="product-image">
-          <img
-            src="https://www.peru-smart.com/wp-content/uploads/2024/04/LAPT180DORADO-512GBSSD_1.jpg"
-            alt=""
-          />
-        </div>
-        <div class="product-title">{{product.nombre}}</div>
-        <div class="product-price">S/{{product.precio}}</div>
-        <button class="add-btn">🛒 Añadir</button>
+<div class="container swiper" style="border: 1px solid blue">
+  <div class="slider-wrapper swiper-cards">
+    <div class="card-list swiper-wrapper">
+      <div class="card-item swiper-slide">
+        <img src="images/img-1.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">James Wilson</h2>
+        <p class="user-profession">Software Developer</p>
+        <button class="message-button">Message</button>
       </div>
+      <div class="card-item swiper-slide">
+        <img src="images/img-2.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">Sarah Johnson</h2>
+        <p class="user-profession">Graphic Designer</p>
+        <button class="message-button">Message</button>
+      </div>
+      <div class="card-item swiper-slide">
+        <img src="images/img-3.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">Michael Brown</h2>
+        <p class="user-profession">Project Manager</p>
+        <button class="message-button">Message</button>
+      </div>
+      <div class="card-item swiper-slide">
+        <img src="images/img-4.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">Emily Davis</h2>
+        <p class="user-profession">Marketing Specialist</p>
+        <button class="message-button">Message</button>
+      </div>
+      <div class="card-item swiper-slide">
+        <img src="images/img-5.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">Christopher Garcia</h2>
+        <p class="user-profession">Data Scientist</p>
+        <button class="message-button">Message</button>
+      </div>
+      <div class="card-item swiper-slide">
+        <img src="images/img-6.jpg" alt="User Image" class="user-image" />
+        <h2 class="user-name">Richard Wilson</h2>
+        <p class="user-profession">Product Designer</p>
+        <button class="message-button">Message</button>
+      </div>
+    </div>
+    <div class="swiper-pagination  swiper-pagination-cards"></div>
+    <div class="swiper-button-prev swiper-slide-button swiper-button-prev-cards"></div>
+    <div class="swiper-button-next swiper-slide-button swiper-button-next-cards"></div>
+  </div>
+</div>
+
+  {% endblock %} {% block contenido %}
+  <!-- Categories -->
+  <section class="categories">
+    <h1>Categoria</h1>
+    <div class="categories-content">
+      {% for cate in categoria %}
+      <a
+        href="{{ url_for('categoria',id=cate.get('id')) }}"
+        class="category-item"
+      >
+        <span>{{cate.name}}</span>
+        <i class="{{ cate.imagen_url }}"></i>
+      </a>
       {% endfor %}
+    </div>
+  </section>
 
-      <button class="nav-arrow right">›</button>
-    </div>
+  <!-- Offers Header -->
+  <div class="offers-header">
+    <div class="offers-title">¡Ofertas Insuperables!</div>
+    <button class="view-all-btn" style="margin-left: 15px">Ver todo</button>
   </div>
-</section>
 
-<!-- Monitors Section -->
-<section class="products-section">
-  <div class="products-container">
-    <div class="section-header">
-      <div class="section-title">Monitores</div>
-      <button class="view-all-btn">Ver todo</button>
-    </div>
-    <div class="products-grid" style="position: relative">
-      <button class="nav-arrow left">‹</button>
-      <div class="product-card">
-        <div class="product-image">🖥</div>
-        <div class="product-title">
-          MONITOR TEROS TE-2766 ( CURVO ), 27", IPS, 144HZ, 1MS
-        </div>
-        <div class="product-price">S/ 890.00</div>
-        <button class="add-btn">🛒 Añadir</button>
+  <!-- Laptops Section -->
+  <section class="products-section">
+    <div class="products-container">
+      <div class="section-header">
+        <div class="section-title">Laptops</div>
+        <button class="view-all-btn">Ver todo</button>
       </div>
-      <div class="product-card">
-        <div class="product-image">🖥</div>
-        <div class="product-title">
-          MONITOR GAMING ASUS VG248QG 24.5" TN, FHD, 144S, 1MS
-        </div>
-        <div class="product-price">S/ 800.00</div>
-        <button class="add-btn">🛒 Añadir</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image">🖥</div>
-        <div class="product-title">
-          MONITOR AORUS FI25F-SA 24.5" IPS, 240HZ, 0.4MS, USB
-        </div>
-        <div class="product-price">S/ 2,470.00</div>
-        <button class="add-btn">🛒 Añadir</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image">🖥</div>
-        <div class="product-title">MONITOR SAMSUNG LC49RG90SSXPE, 49"</div>
-        <div class="product-price">S/ 4,560.00</div>
-        <button class="add-btn">🛒 Añadir</button>
-      </div>
-      <div class="product-card">
-        <div class="product-image">🖥</div>
-        <div class="product-title">
-          MONITOR TEROS TE-2417QS ( VA CURVO ), 24", VA
-        </div>
-        <div class="product-price">S/ 445.00</div>
-        <button class="add-btn">🛒 Añadir</button>
-      </div>
-      <button class="nav-arrow right">›</button>
-    </div>
-  </div>
-</section>
+      <div class="products-grid" style="position: relative">
+        <button class="nav-arrow left">‹</button>
 
-<!-- Promotional Banners -->
-<div class="promo-banners">
-  <div class="promo-banner promo-1">
-    <div>
-      <div style="font-size: 20px">Compra y</div>
-      <div style="font-size: 16px">recoge en</div>
-      <div style="font-size: 18px; font-weight: bold">tienda</div>
-      <div style="font-size: 12px">Gratis en cualquier</div>
-      <div style="font-size: 12px">punto de recojo</div>
+        {% for product in producto %} {{ product }}
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="https://www.peru-smart.com/wp-content/uploads/2024/04/LAPT180DORADO-512GBSSD_1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="product-title">{{product.nombre}}</div>
+          <div class="product-price">S/{{product.precio}}</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        {% endfor %}
+
+        <button class="nav-arrow right">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monitors Section -->
+  <section class="products-section">
+    <div class="products-container">
+      <div class="section-header">
+        <div class="section-title">Monitores</div>
+        <button class="view-all-btn">Ver todo</button>
+      </div>
+      <div class="products-grid" style="position: relative">
+        <button class="nav-arrow left">‹</button>
+        <div class="product-card">
+          <div class="product-image">🖥</div>
+          <div class="product-title">
+            MONITOR TEROS TE-2766 ( CURVO ), 27", IPS, 144HZ, 1MS
+          </div>
+          <div class="product-price">S/ 890.00</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🖥</div>
+          <div class="product-title">
+            MONITOR GAMING ASUS VG248QG 24.5" TN, FHD, 144S, 1MS
+          </div>
+          <div class="product-price">S/ 800.00</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🖥</div>
+          <div class="product-title">
+            MONITOR AORUS FI25F-SA 24.5" IPS, 240HZ, 0.4MS, USB
+          </div>
+          <div class="product-price">S/ 2,470.00</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🖥</div>
+          <div class="product-title">MONITOR SAMSUNG LC49RG90SSXPE, 49"</div>
+          <div class="product-price">S/ 4,560.00</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        <div class="product-card">
+          <div class="product-image">🖥</div>
+          <div class="product-title">
+            MONITOR TEROS TE-2417QS ( VA CURVO ), 24", VA
+          </div>
+          <div class="product-price">S/ 445.00</div>
+          <button class="add-btn">🛒 Añadir</button>
+        </div>
+        <button class="nav-arrow right">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Banners -->
+  <div class="promo-banners">
+    <div class="promo-banner promo-1">
+      <div>
+        <div style="font-size: 20px">Compra y</div>
+        <div style="font-size: 16px">recoge en</div>
+        <div style="font-size: 18px; font-weight: bold">tienda</div>
+        <div style="font-size: 12px">Gratis en cualquier</div>
+        <div style="font-size: 12px">punto de recojo</div>
+      </div>
+    </div>
+    <div class="promo-banner promo-2">
+      <div>
+        <div style="font-size: 20px">Compra</div>
+        <div style="font-size: 16px">fácil, rápido</div>
+        <div style="font-size: 18px; font-weight: bold">y seguro</div>
+      </div>
+    </div>
+    <div class="promo-banner promo-3">
+      <div>
+        <div style="font-size: 20px">Lo mejor en</div>
+        <div style="font-size: 18px; font-weight: bold">tecnología</div>
+        <div style="font-size: 14px">Descubre las mejores marcas</div>
+        <div style="font-size: 14px">a los mejores precios</div>
+      </div>
+    </div>
+    <div class="promo-banner promo-4">
+      <div>
+        <div style="font-size: 20px">Brindamos</div>
+        <div style="font-size: 16px">servicio y</div>
+        <div style="font-size: 18px; font-weight: bold">garantía</div>
+        <div style="font-size: 14px">En todos nuestros productos</div>
+      </div>
     </div>
   </div>
-  <div class="promo-banner promo-2">
-    <div>
-      <div style="font-size: 20px">Compra</div>
-      <div style="font-size: 16px">fácil, rápido</div>
-      <div style="font-size: 18px; font-weight: bold">y seguro</div>
-    </div>
-  </div>
-  <div class="promo-banner promo-3">
-    <div>
-      <div style="font-size: 20px">Lo mejor en</div>
-      <div style="font-size: 18px; font-weight: bold">tecnología</div>
-      <div style="font-size: 14px">Descubre las mejores marcas</div>
-      <div style="font-size: 14px">a los mejores precios</div>
-    </div>
-  </div>
-  <div class="promo-banner promo-4">
-    <div>
-      <div style="font-size: 20px">Brindamos</div>
-      <div style="font-size: 16px">servicio y</div>
-      <div style="font-size: 18px; font-weight: bold">garantía</div>
-      <div style="font-size: 14px">En todos nuestros productos</div>
-    </div>
-  </div>
+
+  {% endblock %}
 </div>
-
-{% endblock %}
