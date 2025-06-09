@@ -36,10 +36,6 @@ with app.app_context():
     db.create_all()
 # ma.init_app(app)
 
-# @app.route('/')
-# def home():
-#     return render_template('index.html')
-
 
 @app.route('/admin')
 @login_required  # Protege esta ruta para que solo los usuarios logueados puedan acceder
@@ -84,21 +80,29 @@ def logout():
     return redirect(url_for('home'))
 
 
+
 @app.route('/')
 def home():
     categorys = db.session.query(Category).all()
     categoria = []
+    # print(categorys)
+    lista_productos_categorias=[]
     for category in categorys:
-        categorias = db.session.query(Product).filter(
-        Product.category_id == category.id).all()
+        categorias = db.session.query(Product).filter(Product.category_id == category.id).all()
+
         # print(categorias)
+        lista_productos_categorias.append(categorias)
         categoria.append({
             'id':category.id,
             'name': category.name,
             'descripcion': category.description,
             'imagen_url': category.imagen_url
         })
-    return render_template('index.html', categoria=categoria)
+
+    for productos_categorias in lista_productos_categorias:
+        print(productos_categorias)
+        pass
+    return render_template('index.html', categoria=categoria,lista_productos_categorias=lista_productos_categorias)
 
 
     # print(len(categorias))
