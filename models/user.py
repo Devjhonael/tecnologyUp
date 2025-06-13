@@ -9,5 +9,3 @@ class User(db.Model):
     password = Column('password',String(128), nullable=False)
     created_at = Column('fecha_creacion',DateTime, default=datetime.utcnow)
     last_login = Column('ultimo_acceso',DateTime, nullable=True)
-
-

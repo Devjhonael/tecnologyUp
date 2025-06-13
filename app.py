@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config.from_object(Config)
 app.secret_key = 'hugo'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://u472469844_est11:#Bd00011@srv1006.hstgr.io/u472469844_est11"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://u472469844_est11:#Bd00011@srv1006.hstgr.io/u472469844_est11"
 CORS(app)
 
 db.init_app(app)
@@ -170,6 +170,6 @@ def categoria(id):
         list_productos.append(productos_copy)
     return render_template('categoria.html',list_productos=list_productos,categoria=categoria   )
 
-
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+    

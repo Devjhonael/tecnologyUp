@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".swiper-banner", {
     loop: true,
     autoplay: {
-      delay: 1000,
+      delay: 5000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     grabCursor: true,
     spaceBetween: 30,
     autoplay: {
-      delay: 500,
+      delay: 5000,
       disableOnInteraction: false,
     },
     pagination: {

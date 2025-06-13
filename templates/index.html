@@ -31,48 +31,25 @@
 </div>
 
 <!-- Slider productos -->
-
 <div class="container swiper" style="border: 1px solid blue">
   <div class="slider-wrapper swiper-cards">
     <div class="card-list swiper-wrapper">
-      <div class="card-item swiper-slide">
-        <img src="images/img-1.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">James Wilson</h2>
-        <p class="user-profession">Software Developer</p>
-        <button class="message-button">Message</button>
-      </div>
-      <div class="card-item swiper-slide">
-        <img src="images/img-2.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">Sarah Johnson</h2>
-        <p class="user-profession">Graphic Designer</p>
-        <button class="message-button">Message</button>
-      </div>
-      <div class="card-item swiper-slide">
-        <img src="images/img-3.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">Michael Brown</h2>
-        <p class="user-profession">Project Manager</p>
-        <button class="message-button">Message</button>
-      </div>
-      <div class="card-item swiper-slide">
-        <img src="images/img-4.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">Emily Davis</h2>
-        <p class="user-profession">Marketing Specialist</p>
-        <button class="message-button">Message</button>
-      </div>
-      <div class="card-item swiper-slide">
-        <img src="images/img-5.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">Christopher Garcia</h2>
-        <p class="user-profession">Data Scientist</p>
-        <button class="message-button">Message</button>
-      </div>
-      <div class="card-item swiper-slide">
-        <img src="images/img-6.jpg" alt="User Image" class="user-image" />
-        <h2 class="user-name">Richard Wilson</h2>
-        <p class="user-profession">Product Designer</p>
-        <button class="message-button">Message</button>
-      </div>
+      {% for categoria_productos in lista_productos_categorias %}
+        {% for producto in categoria_productos %}
+          <div class="card-item swiper-slide">
+            <img 
+              src="{{ producto.imagen_url or 'https://via.placeholder.com/150' }}" 
+              alt="{{ producto.name }}" 
+              class="product-image" 
+            />
+            <h2 class="product-name">{{ producto.name }}</h2>
+            <p class="product-price">S/{{ producto.price }}</p>
+            <button class="add-to-cart">🛒 Añadir</button>
+          </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-    <div class="swiper-pagination  swiper-pagination-cards"></div>
+    <div class="swiper-pagination swiper-pagination-cards"></div>
     <div class="swiper-button-prev swiper-slide-button swiper-button-prev-cards"></div>
     <div class="swiper-button-next swiper-slide-button swiper-button-next-cards"></div>
   </div>
