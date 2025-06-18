@@ -91,23 +91,22 @@ def logout():
 def home():
     categorys = db.session.query(Category).all()
     categoria = []
-    # print(categorys)
+    print(categorys)
     lista_productos_categorias=[]
-    for category in categorys:
-        categorias = db.session.query(Product).filter(Product.category_id == category.id).all()
+    # for category in categorys:
+        # categorias = db.session.query(Product).filter(Product.category_id == category.id).all()
 
         # print(categorias)
-        lista_productos_categorias.append(categorias)
-        categoria.append({
-            'id':category.id,
-            'name': category.name,
-            'descripcion': category.description,
-            'imagen_url': category.imagen_url
-        })
+        # lista_productos_categorias.append(categorias)
+        # categoria.append({
+        #     'id':category.id,
+        #     'name': category.name,
+        #     'descripcion': category.description,
+        #     'imagen_url': category.imagen_url
+        # })
 
-    for productos_categorias in lista_productos_categorias:
-        print(productos_categorias)
-        pass
+    # for productos_categorias in lista_productos_categorias:
+        # print(productos_categorias)
     return render_template('index.html', categoria=categoria,lista_productos_categorias=lista_productos_categorias)
 
     # print(len(categorias))
