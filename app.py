@@ -5,14 +5,13 @@ from db_config import db
 from flask_cors import CORS
 from functools import wraps
 
-from models.category import Category
 from models import *
 
 load_dotenv()
 app = Flask(__name__)
 app.config.from_object(Config)
 app.secret_key = 'hugo'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://u472469844_est11:#Bd00011@srv1006.hstgr.io/u472469844_est11"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://u472469844_est11:#Bd00011@srv1006.hstgr.io/u472469844_est11"
 CORS(app)
 
 db.init_app(app)
@@ -51,26 +50,33 @@ def login():
 
 @app.route("/login_up", methods=['GET', 'POST'])
 def login_up():
-    if request.method == "POST" and 'txtCorreo' in request.form and 'txtPassword':
-        _correo = request.form['txtCorreo']
-        _password = request.form['txtPassword']
-        userLogin = User.query.filter_by(
-            email=_correo, password=_password).first()
+    # print("hugo formulario")
+    if request.method=='POST':
+        correo=request.form['txtCorreo']
+        print(correo)
+        return render_template('index.html',correo=correo)
+    
+    # print('yo quiero trabajar get ')
+    # if request.method == "POST" and 'txtCorreo' in request.form and 'txtPassword':
+    #     _correo = request.form['txtCorreo']
+    #     _password = request.form['txtPassword']
+    #     userLogin = User.query.filter_by(
+    #         email=_correo, password=_password).first()
 
-        # print(userLogin.email)
+    #     # print(userLogin.email)
 
-        if userLogin:
-            session['login-in'] = True
-            session['id'] = userLogin[0]
-            correo = userLogin[1]
-            return render_template('admin.html', correo=correo)
-        else:
-            return render_template('index.html', mensaje="Credenciales incorrectas")
-    else:
-        return {
-            "content": "",
-            "message": "metodo incorrecto"
-        }
+    #     if userLogin:
+    #         session['login-in'] = True
+    #         session['id'] = userLogin[0]
+    #         correo = userLogin[1]
+    #         return render_template('admin.html', correo=correo)
+    #     else:
+    #         return render_template('index.html', mensaje="Credenciales incorrectas")
+    # else:
+    #     return {
+    #         "content": "",
+    #         "message": "metodo incorrecto"
+    #     }
 
 
 @app.route('/logout')
@@ -103,7 +109,6 @@ def home():
         print(productos_categorias)
         pass
     return render_template('index.html', categoria=categoria,lista_productos_categorias=lista_productos_categorias)
-
 
     # print(len(categorias))
     # if len(categorias)==0:
