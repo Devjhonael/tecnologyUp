@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | HugoTech T</title>
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/style_login.css') }}" />
-</head>
-<body>
-  <div class="login-container">
-    <h1>🔥 HugoTech T</h1>
-      <form id="enviar" class="form-control" method="POST" action="{{ url_for('login_up') }}">
-      <input type="text" name="txtCorreo" placeholder="correo de usuario" required />
-      <input type="password" name="txtPassword" placeholder="Contraseña" required />
-      <button type="submit">Iniciar Sesión</button>
-    </form>
-    <p class="registro">¿No tienes cuenta? <a href="/registro">Regístrate aquí</a></p>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | HugoTech T</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/style_login.css') }}"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>🔥 HugoTech T</h1>
+
+      <form
+        id="formulario"
+        class="form-control"
+        method="POST"
+        action="{{ url_for('login_up') }}"
+      >
+        <input
+          type="text"
+          name="txtCorreo"
+          placeholder="correo de usuario"
+          required
+        />
+        <input
+          type="password"
+          name="txtPassword"
+          placeholder="Contraseña"
+          required
+        />
+        <button type="submit" id="btnEnviar">Iniciar Sesión</button>
+      </form>
+      <p class="registro">
+        ¿No tienes cuenta? <a href="/registro">Regístrate aquí</a>
+      </p>
+    </div>
+  </body>
 </html>

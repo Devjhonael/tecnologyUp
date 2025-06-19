@@ -1,7 +1,12 @@
 {% extends "base/base.html" %} 
+
+
 {% block banner %}
 
-<!-- Slider muestra -->
+<!--mensaje de bienvenida -->
+<h1>Hola bienvenido {{ correo }} </h1>
+
+<!-- Slider muestra de productos o marcas a mostrar -->
 
 <div class="swiper swiper-banner" style="border: 1px solid red">
   <div class="swiper-wrapper">
@@ -54,7 +59,6 @@
     <div class="swiper-button-next swiper-slide-button swiper-button-next-cards"></div>
   </div>
 </div>
-
   {% endblock %} {% block contenido %}
   <!-- Categories -->
   <section class="categories">
